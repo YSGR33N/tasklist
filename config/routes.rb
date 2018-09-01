@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
 
-  get 'taskposts/create'
+  get 'tasks/create'
+  
+  put 'tasks/:id', to: 'tasks#update'
+  
+  get 'tasks/edit' 
 
-  get 'taskposts/destroy'
+  get 'tasks/destroy'
+  
+  get 'tasks/:id/edit', to: 'tasks#edit'
 
   root to: 'toppages#index'
   
@@ -13,7 +19,6 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
   resources :users, only: [:index, :show, :new, :create]
   
-  resources :taskposts, only: [:create, :destroy]
-  
-  resources :tasks
+  resources :tasks, only: [:create, :destroy]
+
 end
