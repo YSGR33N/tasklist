@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-
-  get 'tasks/create'
+  root to: "toppages#index"
   
   put 'tasks/:id', to: 'tasks#update'
   
